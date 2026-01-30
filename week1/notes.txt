@@ -1,0 +1,1 @@
+Git tracks files and the changes that occur to them.
