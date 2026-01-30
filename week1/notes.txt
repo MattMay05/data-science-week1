@@ -1,1 +1,2 @@
 Git tracks files and the changes that occur to them.
+I want to remember that when using the 5023B workspace, in any new project I have to announce myself to R to be able to commit to git
