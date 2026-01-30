@@ -1,1 +1,7 @@
 I want to learn more about github and accessing other users code
+Questions about the mosquitoes data:
+1 - row 23, female 74 laid 40 eggs but hatched 46 eggs, this is an impossible value, how do I filter impossible values?
+2 - How to filter missing values, do we ignore all the data related to them or just the missing value and include the other values in that row?
+3 - How to filter names, there are spelling inconsistencies within the collector names e.g. garcia & garci, how do we filter and then change these?
+4 - How to filter upper/lower case to be all uniform, e.g. treatment has HIGH and high dose.
+5 - How to deal with impossible masses, e.g. negative mass, how to filter + change.
