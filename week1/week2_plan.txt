@@ -1,0 +1,55 @@
+WEEK 2 CLEANING PLAN
+====================
+Name: [Matt]
+Date: [05.02.2026]
+
+I've completed all 5 tutorials and application checklists.
+
+Looking across all my checklists, these are the 2 most important issues 
+to address in Week 2:
+
+
+ISSUE 1 (Most Important)
+-------------------------
+Brief description: [There are impossible values e.g. more eggs hatched than were laid in 1 mosquito]
+
+Which tutorial provides the solution: [TUTORIAL 5: NUMERIC & CROSS-VARIABLE CONSISTENCY]
+
+Which variable(s) affected: [eggs_hatched, body_mass_mg]
+
+Why this is important to fix: [Because its biologically impossible to be a negative mass and to hatch more eggs than were laid]
+
+What I plan to do: [Remove the impossible values]
+
+
+
+ISSUE 2 (Second Most Important)
+--------------------------------
+Brief description: [There are missing values in multiple variables]
+
+Which tutorial provides the solution: [TUTORIAL 3: CHECKING MISSING DATA PATTERNS]
+
+Which variable(s) affected: [eggs_hatched, eggs_laid, body_mass_mg]
+
+Why this is important to fix: [Because with missing values some varaibles can be misrepresented in statistical analyses and mislead peoplpe]
+
+What I plan to do: [remove the missing data points]
+
+
+
+OTHER ISSUES I NOTICED (but won't fix in Week 2)
+-------------------------------------------------
+- [Issue 3 - filtering spelling mistakes such as in the collector variable]
+- [Issue 4 - Fixing site variable inconsistencies such as Site-A site a and Site_A]
+- [Issue 5 - Filtering site to be uniformly upper or lower case]
+
+
+QUESTIONS TO DISCUSS IN WEEK 2
+-------------------------------
+Things I'm still unsure about:
+
+1. How to determine what to do with NA values
+
+2. How to determine what to do with impossible values
+
+3. 

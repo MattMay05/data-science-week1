@@ -1,0 +1,252 @@
+================================================================================
+TUTORIAL 1: CHECKING STRINGS - APPLICATION CHECKLIST
+================================================================================
+
+[X] I completed the tutorial exercises
+
+
+CONNECTING TO MY DATA:
+----------------------
+
+1. Did I identify any string-related questions in my Week 1 questions list?
+
+   [X] YES - Question #(s): The string "Site" has multiple variants for the same condition e.g. Site_A, site a, Site-A. There are inconsistencies in capitalisation and spacing.
+   [ ] NO - Skip to question 4
+
+
+2. If YES, which technique from this tutorial could help address my question?
+
+   [X] str_to_lower() - standardize capitalization
+   [X] str_to_upper() - standardize capitalization  
+   [ ] str_trim() - remove leading/trailing whitespace
+   [X] str_replace() - fix typos or inconsistent spellings
+   [X] Other: str_c - join peices of text into one string
+   [ ] None of these apply
+
+
+3. Show what this technique would DO to my data:
+
+   Variable name: Site
+   
+   Example values BEFORE:
+   - Site_A
+   - site a
+   - Site-A
+   
+   What they would become AFTER:
+   - SITE_A
+   - 
+   - 
+
+
+4. If this tutorial is NOT relevant to my data:
+
+   Why not? (Check all that apply)
+   [ ] I don't have any character/text variables
+   [ ] My text variables are already clean
+   [ ] My string issues are different from what this tutorial covers
+   [ ] Other: ___________
+
+
+================================================================================
+================================================================================
+TUTORIAL 2: CHECKING DATES - APPLICATION CHECKLIST
+================================================================================
+
+[X] I completed the tutorial exercises
+
+
+
+CONNECTING TO MY DATA:
+----------------------
+
+1. Did I identify any date-related questions in my Week 1 questions list?
+
+   [ ] YES - Question #(s): ___________
+   [X] NO - Skip to question 5
+
+
+2. If YES, which technique from this tutorial could help address my question?
+
+   [ ] dmy() / ymd() / mdy() - parse dates in different formats
+   [ ] excel_numeric_to_date() - convert Excel serial numbers
+   [ ] Checking for impossible dates (wrong day/month/year)
+   [ ] Other: ___________
+   [ ] None of these apply
+
+
+3. Show what this technique would DO to my data:
+
+   Variable name: ___________
+   
+   Example values BEFORE:
+   - 
+   - 
+   - 
+   
+   What they would become AFTER:
+   - 
+   - 
+   - 
+
+
+4. Think about consequences:
+
+   What assumption am I making about date format?
+   (e.g., "01/12/2023 is DD/MM/YYYY not MM/DD/YYYY")
+   
+   
+   What could go wrong if this assumption is incorrect?
+   
+   
+   How could I verify my assumption is correct?
+   
+
+
+5. If this tutorial is NOT relevant to my data:
+
+   Why not?
+   [ ] I don't have any date variables
+   [X] My dates are already in proper format
+   [ ] My date issues are different from what this tutorial covers
+   [ ] Other: ___________
+
+
+================================================================================
+================================================================================
+TUTORIAL 3: CHECKING MISSING DATA PATTERNS - APPLICATION CHECKLIST
+================================================================================
+
+[X] I completed the tutorial exercises
+
+
+CONNECTING TO MY DATA:
+----------------------
+
+1. Did I identify any missing data questions in my Week 1 questions list?
+
+   [X] YES - Question #(s): How should missing values be treated in the data, e.g. with NA values in body mass, should other data from that row be discarded 
+   [ ] NO - But I'll check anyway (missing data is common)
+
+
+2. Which variables have the most missing data?
+
+   Variable: eggs_hatched | Percent missing: 8.3%
+   Variable: eggs_laid | Percent missing: 7.8%
+   Variable: body_mass_mg | Percent missing: 7.3%
+
+
+3. Missingness types checklist
+
+
+   [X] MCAR (Missing Completely At Random) - appears random/scattered
+   [ ] MAR (Missing At Random) - related to other observed variables
+   [ ] MNAR (Missing Not At Random) - related to the missing value itself
+
+Why is it important to know what type of missing data we have? 
+So that you can determine what to do with the missing values
+
+================================================================================
+================================================================================
+TUTORIAL 4: CHECKING DUPLICATES - APPLICATION CHECKLIST
+================================================================================
+
+[X] I completed the tutorial exercises
+
+
+CONNECTING TO MY DATA:
+----------------------
+
+1. Did I identify any duplicate-related questions in my Week 1 questions list?
+
+   [ ] YES - Question #(s): ___________
+   [X] NO - But I'll check anyway
+
+
+3. Think about consequences:
+
+   If I remove duplicates, what am I assuming?
+   That they were due to human error rather than actually occuring within the population
+   
+   If duplicates are actually repeated measures, what should I do instead?
+   [X] Keep them - they're legitimate observations
+   [ ] Flag them for later analysis that accounts for non-independence
+   [ ] Other: ___________
+   
+   
+================================================================================
+================================================================================
+TUTORIAL 5: NUMERIC & CROSS-VARIABLE CONSISTENCY - APPLICATION CHECKLIST
+================================================================================
+
+ [X] I completed the tutorial exercises
+
+
+PART A: NUMERIC PLAUSIBILITY
+-----------------------------
+
+1. Did I identify any numeric plausibility questions in my Week 1 questions list?
+
+   [X] YES - Question #(s):row 23, female 74 laid 40 eggs but hatched 46 eggs, this is an impossible value, how do I filter impossible values? 
+   How to deal with impossible masses, e.g. negative mass, how to filter + change.
+   [ ] NO - Skip to Part B
+
+
+2. If YES, which numeric variable looks suspicious?
+
+   Variable name: body_mass_mg
+   
+   Minimum value: -93  | Is this biologically possible? [ ] Yes [X] No [ ] Unsure
+   Maximum value: 109  | Is this biologically possible? [X] Yes [ ] No [ ] Unsure
+   
+
+   Why do these look wrong?
+   [X] Negative value (impossible for this measurement)
+   [ ] Zero (should be NA instead)
+   [ ] Too large (exceeds known biological maximum)
+   [X] Too small (below known biological minimum)
+   [ ] Possible units confusion (mixed kg and g?)
+   [ ] Other: ___________
+
+
+
+PART B: CROSS-VARIABLE CONSISTENCY
+-----------------------------------
+
+4. Did I identify any cross-variable questions in my Week 1 questions list?
+
+   [ ] YES - Question #(s): ___________
+   [X] NO - But I'll check anyway
+
+
+5. Choose TWO variables that should be related (e.g., body length and body mass,
+   sex and reproductive status, species and location):
+
+   Variable 1: eggs_laid
+   Variable 2: eggs_hatched
+   
+   What relationship do I expect between them?
+   [X] Positive correlation (both increase together)
+   [ ] Negative correlation (one increases, other decreases)
+   [ ] Biological constraint (certain combinations impossible)
+   [ ] Spatial constraint (certain combinations shouldn't occur)
+   [ ] Other: ___________
+   
+   Describe the expected relationship:
+   Although you'd assume a positive correlation, just becuase more eggs are laid doesn't neccesarily mean more will hatch, but you would expect that to be the case.
+
+
+6. Think about consequences:
+
+   If these variables are inconsistent, what should I do?
+   [ ] Remove the observations
+   [ ] Convert one variable to NA (which one? _________)
+   [ ] Flag for review but keep both
+   [X] Query the data collector
+   [ ] Other: ___________
+   
+   Justification: If the data is unexpected there could be a biological explanation for it such as pesticides, climate so you should consult the data collector before deciding how to deal with unexpected egg hatchings and layings
+   
+
+
+================================================================================
