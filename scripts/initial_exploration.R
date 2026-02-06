@@ -170,8 +170,30 @@ mosquito_egg_data_step2 |>
     sum(is.na(body_mass_mg))
   )
   
-# 0
   # What changed and why it matters:
   # All NA values for body_mass_mg were removed. 
   # All mosquitoes now have a body_mass_mg value
 ###===============================================================
+## implementing my partners fix
+# FIX 3: [duplicates in the data] ====
+
+# Show the problem:
+library(tidyverse)
+
+mosquito_egg_raw %>%
+  get_dupes()
+
+# Fix it:
+mosquito_egg_data_step3 <- mosquito_egg_raw |>
+  filter(!duplicated(across(everything())))
+ 
+  
+  
+  # Verify it worked:
+mosquito_egg_data_step3 %>%
+  get_dupes()
+  
+  
+  # What changed and why it matters:
+#Duplicates removed. I created a new data set "3" from the initial raw data as "2" had the NA values removed which removed the duplicated rows.
+  
