@@ -105,3 +105,73 @@ mosquito_egg_raw |>
   summarise(across(where(is.numeric), 
                    list(min = ~min(., na.rm = TRUE),
                         max = ~max(., na.rm = TRUE))))            
+####=========================================================
+
+# FIX 1: [Flagging impossible value of negative body mass] ====
+
+# Show the problem:
+# [Code to demonstrate issue exists]
+# Check for zero or negative values where zero doesn't make biological sense
+mosquito_egg_raw |> 
+  filter(body_mass_mg <= 0)
+
+# female 109, 98 and 184 
+
+# Fix it:
+mosquito_egg_data_step1 <- mosquito_egg_raw |>
+  mutate(
+    flag_impossible = case_when(
+      body_mass_mg <= 0 ~ "negative_mass",
+      TRUE ~ NA_character_
+    ),
+    flag_implausible = case_when(
+      body_mass_mg < 30 ~ "suspiciously_light",
+      body_mass_mg > 110 ~ "suspiciously_heavy",
+      TRUE ~ NA_character_
+    ),
+    any_flag = !is.na(flag_impossible) | !is.na(flag_implausible) 
+  )
+  
+
+  # Verify it worked:
+  # [Code to check change happened]
+
+mosquito_egg_data_step1 |>
+  summarise(
+    n_impossible = sum(!is.na(flag_impossible)),
+    n_implausible = sum(!is.na(flag_implausible)),
+    total_flagged = sum(any_flag)
+  )
+    
+  # What changed and why it matters:
+  # The impossible & implausible values of body_mass_mg have been flagged. 
+  # This means that the data set has not had any rows removed and became any less representative
+  # But anybody inspecting the data can now identify any values that should be investiaged before any sort of statistical analyses or visualisations
+  
+  
+  # FIX 2: [There are multiple missing values in multiple variables]  ====
+
+# Show the problem: 
+mosquito_egg_data_step1 |>
+  summarise(
+  sum(is.na(body_mass_mg))
+  )
+
+ #15 NA values in body_mass_mg
+
+# Fix it:
+mosquito_egg_data_step2 <- mosquito_egg_data_step1 |>
+  drop_na(body_mass_mg)
+
+  
+  # Verify it worked:
+mosquito_egg_data_step2 |>
+  summarise(
+    sum(is.na(body_mass_mg))
+  )
+  
+# 0
+  # What changed and why it matters:
+  # All NA values for body_mass_mg were removed. 
+  # All mosquitoes now have a body_mass_mg value
+###===============================================================
